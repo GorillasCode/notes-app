@@ -1,6 +1,7 @@
 import { useState } from "react"
 import Notes from "./components/Notes";
 import NotesForm from "./components/NotesForm";
+import "./app.css";
 
 
 function App() {

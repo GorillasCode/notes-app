@@ -5,11 +5,11 @@ const Notes = ({notes}) => {
     <div className="notes">
           <div className="content">
             <p>{notes.text}</p>
-            <p className="category">{notes.category}</p>
           </div>
           <div>
-            <button>editar</button>
-            <button>x</button>   
+            <button>Editar</button>
+            <button>Save</button>   
+            <button className="delete">x</button>   
           </div>
       </div>
 
