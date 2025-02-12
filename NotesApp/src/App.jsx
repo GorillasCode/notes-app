@@ -1,13 +1,39 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react"
+import Notes from "./components/Notes";
+import NotesForm from "./components/NotesForm";
+import "./app.css";
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [notes, setNotes] = useState([
+    {
+      id: 1,
+      text: "notas teste 1",
+      isCompleted: false,
+    },
+    {
+      id: 2,
+      text: "Notas teste 2",
+      isCompleted: false,
+    },
+    {
+      id: 3,
+      text: "notas teste 3",
+      isCompleted: false,
+    },
+  ]);
+
 
   return (
-    <div>GAJKGKJASKGKA</div>
+    <div className="app">
+      <h1>Note list</h1>
+      <div className="notes">
+        {notes.map((notes) => (
+          <Notes notes={notes}/>
+        ))}
+      </div>
+      <NotesForm />
+    </div>
   )
 }
 
