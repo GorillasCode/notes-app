@@ -28,13 +28,21 @@ function App() {
     const newNotes = [
       ...notes,
       {
-       id: Math.floor(Math.random() *10000),
-       text,
-       isCompleted: false,
+        id: Math.floor(Math.random() * 10000),
+        text,
+        isCompleted: false,
       },
     ];
 
     setNotes(newNotes);
+  }
+
+  const removeNote = (id) => {
+    const newNotes = [...notes]
+    const filteredNotes = newNotes.filter(note =>
+      note.id !== id ? note : null
+    );
+    setNotes(filteredNotes)
   }
 
 
@@ -43,7 +51,7 @@ function App() {
       <h1>Note list</h1>
       <div className="notes">
         {notes.map((note) => (
-          <Notes key={note.id} notes={note}/>
+          <Notes key={notes.id} notes={note} removeNote={removeNote}/>
         ))}
       </div>
       <NotesForm addNote={addNote} />
