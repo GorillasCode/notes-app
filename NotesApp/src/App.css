@@ -8,6 +8,16 @@ body {
     background-size: cover;
 }
 
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.buttons {
+    display: flex;
+    justify-content: flex-end;
+}
+
 .app {
     max-width: 500px;
     margin: 0 auto 400px;
@@ -41,10 +51,18 @@ button {
     cursor: pointer;
     opacity: .8;
     transition: .3s;
+    margin-right: 8px;
 }
 
 button:hover {
     opacity: 1;
+}
+
+.note {
+    margin-bottom: 10px;
+    justify-content: space-between;
+    align-items: center;
+
 }
 
 .notes-form {

@@ -6,21 +6,21 @@ import "./app.css";
 
 function App() {
   const [notes, setNotes] = useState([
-    // {
-    //   id: 1,
-    //   text: "notas teste 1",
-    //   isCompleted: false,
-    // },
-    // {
-    //   id: 2,
-    //   text: "Notas teste 2",
-    //   isCompleted: false,
-    // },
-    // {
-    //   id: 3,
-    //   text: "notas teste 3",
-    //   isCompleted: false,
-    // },
+    {
+      id: 1,
+      text: "notas teste 1",
+      isCompleted: false,
+    },
+    {
+      id: 2,
+      text: "Notas teste 2",
+      isCompleted: false,
+    },
+    {
+      id: 3,
+      text: "notas teste 3",
+      isCompleted: false,
+    },
   ]);
 
   const addNote = (text) => {
