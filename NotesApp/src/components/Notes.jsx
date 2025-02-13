@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Notes = ({notes}) => {
+const Notes = ({ notes, removeNote }) => {
   return (
     <div className="notes">
           <div className="content">
@@ -9,7 +9,7 @@ const Notes = ({notes}) => {
           <div className="buttons">
             <button>Editar</button>
             <button>Save</button>   
-            <button className="delete">x</button>   
+            <button className="delete" onClick={() => removeNote(notes.id)}>x</button>   
           </div>
       </div>
 
