@@ -6,7 +6,7 @@ const Notes = ({notes}) => {
           <div className="content">
             <p>{notes.text}</p>
           </div>
-          <div>
+          <div className="buttons">
             <button>Editar</button>
             <button>Save</button>   
             <button className="delete">x</button>   
