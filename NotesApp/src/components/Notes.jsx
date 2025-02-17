@@ -7,7 +7,7 @@ const Notes = ({ notes, removeNote }) => {
             <p>{notes.text}</p>
           </div>
           <div className="buttons">
-            <button>Editar</button>
+            <button>Edit</button>
             <button>Save</button>   
             <button className="delete" onClick={() => removeNote(notes.id)}>x</button>   
           </div>
