@@ -1,11 +1,21 @@
 body {
     font-family: Arial;
-    background-color: #f4f4f4;
     padding: 30px;
-    color: #333;
+    color: #7e88e8;
     background-image: url('./img/bg.jpg');
     background-position: center;
     background-size: cover;
+}
+
+#light {
+    background-color: #f4f4f4;
+    color: #201b2d;
+}
+
+#dark {
+    background-color: #201b2d;
+    color: #f4f4f4;
+
 }
 
 form {
@@ -21,9 +31,14 @@ form {
 .app {
     max-width: 500px;
     margin: 0 auto 400px;
-    background-color: #faf8f8;
+    /* background-color: #faf8f8; */
     padding: 20px 30px;
     border-radius: 10px;
+}
+
+.switch {
+    display: flex;
+    justify-content: flex-end;
 }
 
 h1 {

@@ -2,6 +2,7 @@ import { useState } from "react"
 import Notes from "./components/Notes";
 import NotesForm from "./components/NotesForm";
 import "./app.css";
+import Switch from "react-switch";
 
 
 function App() {
@@ -45,9 +46,31 @@ function App() {
     setNotes(filteredNotes)
   }
 
+  const [theme, setTheme] = useState("light");
+
+  const toggleTheme = () => {
+    setTheme((corr) => (corr === "light" ? "dark" : "light"));
+  }
+
 
   return (
-    <div className="app">
+
+    <div className="app" id={theme}>
+      <div className="switch">
+        <Switch
+          onChange={toggleTheme}
+          checked={theme === "dark"}
+          height={20}
+          width={40}
+          checkedIcon={false}
+          uncheckedIcon={false}
+          handleDiameter={20}
+          offColor="#fff"
+          onColor="#232323"  
+        />
+        
+     </div>
+
       <h1>Note list</h1>
       <div className="notes">
         {notes.map((note) => (
