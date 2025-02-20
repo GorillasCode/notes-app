@@ -1,15 +1,15 @@
 import React from 'react'
 
-const Notes = ({ notes, removeNote }) => {
+const Notes = ({ note, removeNote, saveNote}) => {
   return (
     <div className="notes">
           <div className="content">
-            <p>{notes.text}</p>
+            <p>{note.text}</p>
           </div>
           <div className="buttons">
             <button>Edit</button>
-            <button>Save</button>   
-            <button className="delete" onClick={() => removeNote(notes.id)}>x</button>   
+            <button onClick={() => saveNote(`note_${note.id}`,note.text)}>Save</button>   
+            <button className="delete" onClick={() => removeNote(`note_${note.id}`,note.id)}>x</button>   
           </div>
       </div>
 

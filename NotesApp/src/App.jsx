@@ -6,28 +6,12 @@ import Switch from "react-switch";
 
 
 function App() {
-  const [notes, setNotes] = useState([
-    {
-      id: 1,
-      text: "notas teste 1",
-      isCompleted: false,
-    },
-    {
-      id: 2,
-      text: "Notas teste 2",
-      isCompleted: false,
-    },
-    {
-      id: 3,
-      text: "notas teste 3",
-      isCompleted: false,
-    },
-  ]);
+  const [noteList, setNotes] = useState([]);
 
   const addNote = (text) => {
 
     const newNotes = [
-      ...notes,
+      ...noteList,
       {
         id: Math.floor(Math.random() * 10000),
         text,
@@ -37,9 +21,26 @@ function App() {
 
     setNotes(newNotes);
   }
+  
 
-  const removeNote = (id) => {
-    const newNotes = [...notes]
+
+  const saveNote = (id, notes) => {
+    localStorage.setItem(id, notes)
+    const newNotes = [...noteList]
+    const filteredNotes = newNotes.filter(note =>
+      note.id !== id ? note : null
+    );
+    setNotes(filteredNotes)
+
+  }
+
+  const showNotes = (chave) => {
+    alert(localStorage.getItem(chave))
+  }
+
+  const removeNote = (key,id) => {
+    localStorage.removeItem(key)
+    const newNotes = [...noteList]
     const filteredNotes = newNotes.filter(note =>
       note.id !== id ? note : null
     );
@@ -56,6 +57,8 @@ function App() {
   return (
 
     <div className="app" id={theme}>
+      <button onClick={()=>showNotes("")}>Show Notes</button>
+      <h5>◑</h5>
       <div className="switch">
         <Switch
           onChange={toggleTheme}
@@ -65,16 +68,17 @@ function App() {
           checkedIcon={false}
           uncheckedIcon={false}
           handleDiameter={20}
+          offHandleColor="#232323"
           offColor="#fff"
-          onColor="#232323"  
-        />
-        
-     </div>
+          onColor="#232323"
 
+        />
+
+      </div>
       <h1>Note list</h1>
       <div className="notes">
-        {notes.map((note) => (
-          <Notes key={notes.id} notes={note} removeNote={removeNote}/>
+        {noteList.map((note) => (
+          <Notes key={note.id} note={note} removeNote={removeNote} saveNote={saveNote} />
         ))}
       </div>
       <NotesForm addNote={addNote} />
