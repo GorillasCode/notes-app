@@ -11,9 +11,8 @@ const NotesForm = ({ addNote }) => {
     setValue("");
  };
 
-
  return <div className="notes-form">
-        <h2>Create Notes</h2>
+        <h3>Create Notes</h3>
         <form onSubmit={handleSubmit}>
             <input 
                 type="text" 
