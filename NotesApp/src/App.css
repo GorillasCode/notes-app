@@ -98,6 +98,15 @@ button:hover {
     };
 }
 
+.ShowNotesDiv {
+    display: flex;
+    flex-direction: column;
+    button {
+        width: 200px;
+        align-self: center;
+    };
+}
+
 input, select {
     padding: 5px;
     margin-bottom: 10px;
