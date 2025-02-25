@@ -3,6 +3,7 @@ import Notes from "./components/Notes";
 import NotesForm from "./components/NotesForm";
 import "./app.css";
 import Switch from "react-switch";
+import { Modal } from "./components/Modal";
 
 
 function App() {
@@ -34,10 +35,6 @@ function App() {
 
   }
 
-  const showNotes = (chave) => {
-    alert(localStorage.getItem(chave))
-  }
-
   const removeNote = (key,id) => {
     localStorage.removeItem(key)
     const newNotes = [...noteList]
@@ -53,11 +50,16 @@ function App() {
     setTheme((corr) => (corr === "light" ? "dark" : "light"));
   }
 
+  const [openModal, setOpenModal] = useState(false);
+
+  const showNotes = (chave) => {
+   localStorage.getItem(chave)
+  }
+
 
   return (
 
     <div className="app" id={theme}>
-      <button onClick={()=>showNotes("")}>Show Notes</button>
       <h5>◑</h5>
       <div className="switch">
         <Switch
@@ -82,6 +84,14 @@ function App() {
         ))}
       </div>
       <NotesForm addNote={addNote} />
+      <div className="ShowNotesDiv"> 
+      <button onClick={() =>  setOpenModal(!openModal)}>Show Saves</button>
+      <Modal 
+        isOpenModal={openModal} 
+        setOpenModal={setOpenModal}
+        description={showNotes}
+      />
+      </div>
     </div>
   )
 }
